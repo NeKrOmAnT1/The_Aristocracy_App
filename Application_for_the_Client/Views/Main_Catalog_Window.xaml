@@ -55,7 +55,7 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <materialDesign:PackIcon Kind="Cart" VerticalAlignment="Center"/>
                 <TextBlock  Text="{Binding money, StringFormat=Итоговая сумма: {0} рублей}" FontSize="15" FontFamily="Sans Serif" FontWeight="Bold" Style="{StaticResource MaterialDesignCharacterCounterTextBlock}" Foreground="White" VerticalAlignment="Center"/>
-                <Button materialDesign:ButtonAssist.CornerRadius="15" Style="{StaticResource MaterialDesignFlatButton}" Content="Перейти к корзине" FontSize="15"/>
+                <Button materialDesign:ButtonAssist.CornerRadius="15" Style="{StaticResource MaterialDesignFlatButton}" FontWeight="Bold" Content="Перейти к корзине" FontSize="15"/>
                 </StackPanel>
         </Grid>
             <Grid Grid.Row="1">
