@@ -27,7 +27,7 @@
             
             <Border Margin="10" Width="350" Background="#696969" CornerRadius="20">
                 <StackPanel Margin="10">
-                    <Label Content="Авторизация" FontWeight="Bold" FontFamily="Sans Serif " HorizontalAlignment="Center" Foreground="White" FontSize="40"/>
+                    <Label Content="Авторизация" FontWeight="Bold" FontFamily="Sans Serif" HorizontalAlignment="Center" Foreground="White" FontSize="40"/>
                     <TextBox materialDesign:HintAssist.Hint="Введите электронную почту" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="20"/>
                     <TextBox materialDesign:HintAssist.Hint="Введите пароль" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="20"/>
                     <Button Width="auto" Content="Войти" Height="40" FontSize="20" FontWeight="Bold" Style="{StaticResource MaterialDesignFlatAccentButton}" Margin="10"/>
