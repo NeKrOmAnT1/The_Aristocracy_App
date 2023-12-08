@@ -13,8 +13,10 @@ namespace Application_for_the_Client.ModelViews
     { 
         public ObservableCollection<ProductModel> Tovar { get; set; }
         public ProductModel SelectedItem { get; set; }
+        public int money { get; set; }
         public Main_Catalog_Window_ViewModel()
         {
+            money = 3213;
             Tovar = new ObservableCollection<ProductModel>();
             Tovar.Add(new ProductModel { Id = 1, Productname = "Товар 1", Productprice = 100 });
             Tovar.Add(new ProductModel { Id = 2, Productname = "Товар 2", Productprice = 200 });

@@ -12,7 +12,7 @@
                  
         xmlns:viewmodel ="clr-namespace:Application_for_the_Client.ModelViews"
         
-        Title="Каталог товаров" Height="450" Width="800" Background="#302f2f" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Каталог товаров" Height="450" Width="800" Background="#302f2f" WindowStartupLocation="CenterScreen">
 
     <Window.DataContext>
         <viewmodel:Main_Catalog_Window_ViewModel/>
@@ -47,15 +47,19 @@
     </mah:MetroWindow.RightWindowCommands>
     <!--#endregion-->
     <Grid>
-        <StackPanel>
-        <Grid Margin="5" VerticalAlignment="Top" Height="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="5" VerticalAlignment="Top" Height="30" Grid.Row="0">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button materialDesign:ButtonAssist.CornerRadius="25" Style="{StaticResource MaterialDesignFlatButton}" Content="Перейти к корзине" FontSize="15"/>
+                <materialDesign:PackIcon Kind="Cart" VerticalAlignment="Center"/>
+                <TextBlock  Text="{Binding money, StringFormat=Итоговая сумма: {0} рублей}" FontSize="15" FontFamily="Sans Serif" FontWeight="Bold" Style="{StaticResource MaterialDesignCharacterCounterTextBlock}" Foreground="White" VerticalAlignment="Center"/>
+                <Button materialDesign:ButtonAssist.CornerRadius="15" Style="{StaticResource MaterialDesignFlatButton}" Content="Перейти к корзине" FontSize="15"/>
                 </StackPanel>
         </Grid>
-            <Grid>
-                <ScrollViewer Height="378">
-                    <ListBox VerticalAlignment="Center" Style="{StaticResource MaterialDesignCardsListBox}" ItemsSource="{Binding Tovar}" SelectedItem="{Binding SelectedItem}">
+            <Grid Grid.Row="1">
+                    <ListBox Margin="10 0 0 0" VerticalAlignment="Center" Style="{StaticResource MaterialDesignCardsListBox}" ItemsSource="{Binding Tovar}" SelectedItem="{Binding SelectedItem}">
                         <ListBox.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="Приобрести"/>
@@ -71,14 +75,12 @@
                             <DataTemplate>
                                 <StackPanel HorizontalAlignment="Center">
                                     <Image Source="C:\Users\Pro\source\repos\ClientServiceWPF\ClientServiceWPF\Image\kartinki-znak-voprosa-4.jpg" Grid.Row="0" Height="150" Width="150"/>
-                                    <TextBlock Style="{StaticResource MaterialDesignCharacterCounterTextBlock}" FontSize="20" FontFamily="Sans Serif" FontWeight="Bold" Foreground="White" Grid.Row="1" Height="auto" TextWrapping="Wrap" Text="{Binding Productname, StringFormat=Одежда: {0}}"/>
-                                    <TextBlock Style="{StaticResource MaterialDesignCharacterCounterTextBlock}" FontSize="15" FontFamily="Sans Serif" FontWeight="Bold" Foreground="White" Grid.Row="2" Height="auto" TextWrapping="Wrap" Text="{Binding Productprice, StringFormat=Цена: {0} рублей}"/>
+                                    <TextBlock Style="{StaticResource MaterialDesignCharacterCounterTextBlock}" FontSize="20" FontFamily="Sans Serif" FontWeight="Bold" Foreground="White" Height="auto" TextWrapping="Wrap" Text="{Binding Productname, StringFormat=Одежда: {0}}"/>
+                                    <TextBlock Style="{StaticResource MaterialDesignCharacterCounterTextBlock}" FontSize="15" FontFamily="Sans Serif" FontWeight="Bold" Foreground="White" Height="auto" TextWrapping="Wrap" Text="{Binding Productprice, StringFormat=Цена: {0} рублей}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                </ScrollViewer>
             </Grid>
-        </StackPanel>
     </Grid>
 </mah:MetroWindow>
