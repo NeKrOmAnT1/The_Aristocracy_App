@@ -1,0 +1,67 @@
+﻿<mah:MetroWindow x:Class="Application_for_the_Client.Views.ProductCard_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Application_for_the_Client.Views"
+        mc:Ignorable="d"
+        
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                 
+        xmlns:viewmodel ="clr-namespace:Application_for_the_Client.ModelViews"
+        
+        Title="Карточка товара" Height="550" Width="800" Background="#302f2f" WindowStartupLocation="CenterScreen" >
+    <Window.DataContext>
+        <viewmodel:ProductCard_ViewModel/>
+    </Window.DataContext>
+    <!--#region Стиль окна-->
+    <mah:MetroWindow.LeftWindowCommands>
+        <mah:WindowCommands>
+            <iconPacks:PackIconModern Width="22"
+                            Height="22"
+                            Kind="ClothesTie" />
+        </mah:WindowCommands>
+    </mah:MetroWindow.LeftWindowCommands>
+    <mah:MetroWindow.RightWindowCommands>
+        <mah:WindowCommands>
+            <Button Command="{Binding moc}">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconModern Width="22"
+                                  Height="22"
+                                  VerticalAlignment="Center"
+                                  Kind="Return"/>
+                            <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="Вернуться к каталогу товаров" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+        </mah:WindowCommands>
+    </mah:MetroWindow.RightWindowCommands>
+    <!--#endregion-->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+       
+        <Image Margin="50 10 25 10" Source="C:\Users\Pro\source\repos\ClientServiceWPF\ClientServiceWPF\Image\kartinki-znak-voprosa-4.jpg" Grid.Column="0" VerticalAlignment="Center" Width="400" Height="400"/>
+        <StackPanel Margin="10 30" Grid.Column="1" VerticalAlignment="Center">
+            <Label Content="ARISTOKRATIA" FontFamily="Sans Serif" FontWeight="Bold" FontSize="30" />
+            <TextBlock Text="{Binding Name, StringFormat= ·{0} ARISTOKRATIA}" Foreground="White" FontWeight="Bold"  FontSize="20"/>
+            <TextBlock TextWrapping="Wrap" Margin="0 10" Foreground="White" FontSize="15" FontFamily="Sans Serif" Text="{Binding Description}"/>
+            <TextBlock Text="{Binding Price, StringFormat=ᅟ{0} RUS}" Margin="0 10 0 0" HorizontalAlignment="Center" Grid.Column="1" FontFamily="Sans Serif" Foreground="White" FontSize="18"  FontWeight="Bold"/>
+            <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontFamily="Sans Serif" Width="300" materialDesign:HintAssist.Hint="Размер" Foreground="Cyan" FontWeight="Bold" FontSize="20">
+                <ComboBoxItem Content="38"/>
+                <ComboBoxItem Content="39"/>
+                <ComboBoxItem Content="41"/>
+            </ComboBox>
+            <Button materialDesign:ButtonAssist.CornerRadius="15" Margin="0 10" Width="300" Style="{StaticResource MaterialDesignFlatButton}" Height="50" FontWeight="Bold" Content="Добавить в корзину" FontSize="20" Cursor="Hand"/>
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>

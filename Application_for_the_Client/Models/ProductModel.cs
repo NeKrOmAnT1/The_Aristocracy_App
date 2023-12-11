@@ -11,5 +11,7 @@ namespace Application_for_the_Client.Models
         public int Id { get; set; }
         public string Productname { get; set; }
         public int Productprice { get; set; }
+        public string Productdescription { get; set; }
+        public decimal Productsize { get; set; } 
     }
 }
