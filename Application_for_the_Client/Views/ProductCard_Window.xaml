@@ -36,7 +36,7 @@
                                   Kind="Return"/>
                             <TextBlock Margin="4 0 0 0"
                    VerticalAlignment="Center"
-                   Text="Вернуться к каталогу товаров" />
+                   Text="Вернуться к каталогу товаров" FontSize="15" />
                         </StackPanel>
                     </DataTemplate>
                 </Button.ContentTemplate>

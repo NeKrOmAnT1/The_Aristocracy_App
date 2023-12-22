@@ -11,17 +11,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Application_for_the_Administrator
+namespace Application_for_the_Client.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для ShoppingCart_Window.xaml
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class ShoppingCart_Window : MetroWindow
     {
-        public MainWindow()
+        public ShoppingCart_Window()
         {
             InitializeComponent();
         }

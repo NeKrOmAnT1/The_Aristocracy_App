@@ -62,6 +62,7 @@
                     <ListBox Margin="10 0 0 0" VerticalAlignment="Center" Style="{StaticResource MaterialDesignCardsListBox}" ItemsSource="{Binding Tovar}" SelectedItem="{Binding SelectedItem}">
                         <ListBox.ContextMenu>
                             <ContextMenu>
+                                <MenuItem Header="Перейти к товару"/>
                                 <MenuItem Header="Приобрести"/>
                                 <MenuItem Header="Добавить в корзину"/>
                             </ContextMenu>
