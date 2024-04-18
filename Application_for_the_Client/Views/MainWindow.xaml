@@ -9,8 +9,14 @@
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                 
+         xmlns:viewmodel ="clr-namespace:Application_for_the_Client.ModelViews"
         
         Title="Регистрация/Авторизация" Height="450" Width="800" Background="#302f2f" WindowStartupLocation="CenterScreen">
+    
+    <Window.DataContext>
+        <viewmodel:MainWindow_ViewModel/>
+    </Window.DataContext>
     <!--#region Стиль окна-->
     <mah:MetroWindow.LeftWindowCommands>
         <mah:WindowCommands>
@@ -28,18 +34,18 @@
             <Border Margin="10" Width="350" Background="#696969" CornerRadius="20">
                 <StackPanel Margin="10">
                     <Label Content="Авторизация" FontWeight="Bold" FontFamily="Sans Serif" HorizontalAlignment="Center" Foreground="White" FontSize="40"/>
-                    <TextBox materialDesign:HintAssist.Hint="Введите электронную почту" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="20"/>
-                    <TextBox materialDesign:HintAssist.Hint="Введите пароль" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="20"/>
-                    <Button Width="auto" Content="Войти" Height="40" FontSize="20" FontWeight="Bold" Style="{StaticResource MaterialDesignFlatAccentButton}" Margin="10"/>
+                    <TextBox materialDesign:HintAssist.Hint="Введите электронную почту" Text="{Binding authEmail}" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="20"/>
+                    <TextBox materialDesign:HintAssist.Hint="Введите пароль" Text="{Binding authPass}" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="20"/>
+                    <Button Width="auto" Content="Войти" Height="40" FontSize="20" Command="{Binding AuthUserCommand}" FontWeight="Bold" Style="{StaticResource MaterialDesignFlatAccentButton}" Margin="10"/>
                 </StackPanel>
             </Border>
 
             <Border Margin="10" Width="350" Background="#696969" CornerRadius="20">
                 <StackPanel Margin="10">
                     <Label Content="Регистрация" FontWeight="Bold" FontFamily="Sans Serif " HorizontalAlignment="Center" Foreground="White" FontSize="40"/>
-                    <TextBox materialDesign:HintAssist.Hint="Введите электронную почту" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="20"/>
-                    <TextBox materialDesign:HintAssist.Hint="Придумайте пароль" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="20"/>
-                    <Button Width="auto" Content="Зарегистрироваться" Height="40" FontWeight="Bold" FontSize="20" Style="{StaticResource MaterialDesignFlatAccentButton}" Foreground="White" Margin="10"/>
+                    <TextBox materialDesign:HintAssist.Hint="Введите электронную почту" Text="{Binding regEmail}" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="20"/>
+                    <TextBox materialDesign:HintAssist.Hint="Придумайте пароль" Text="{Binding regPass}" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="20"/>
+                    <Button Width="auto" Content="Зарегистрироваться" Height="40" Command="{Binding RegUserCommand}" FontWeight="Bold" FontSize="20" Style="{StaticResource MaterialDesignFlatAccentButton}" Foreground="White" Margin="10"/>
                 </StackPanel>
             </Border>
             

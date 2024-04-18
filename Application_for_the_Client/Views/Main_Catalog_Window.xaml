@@ -28,7 +28,7 @@
     </mah:MetroWindow.LeftWindowCommands>
     <mah:MetroWindow.RightWindowCommands>
         <mah:WindowCommands>
-            <Button Command="{Binding moc}">
+            <Button Command="{Binding OutAccountCommand}">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -55,15 +55,14 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <materialDesign:PackIcon Kind="Cart" VerticalAlignment="Center"/>
                 <TextBlock  Text="{Binding money, StringFormat=Итоговая сумма: {0} рублей}" FontSize="15" FontFamily="Sans Serif" FontWeight="Bold" Style="{StaticResource MaterialDesignCharacterCounterTextBlock}" Foreground="White" VerticalAlignment="Center"/>
-                <Button materialDesign:ButtonAssist.CornerRadius="15" Style="{StaticResource MaterialDesignFlatButton}" FontWeight="Bold" Content="Перейти к корзине" FontSize="15"/>
+                <Button materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding OpenShoppingCartCommand}" Style="{StaticResource MaterialDesignFlatButton}" FontWeight="Bold" Content="Перейти к корзине" FontSize="15"/>
                 </StackPanel>
         </Grid>
             <Grid Grid.Row="1">
                     <ListBox Margin="10 0 0 0" VerticalAlignment="Center" Style="{StaticResource MaterialDesignCardsListBox}" ItemsSource="{Binding Tovar}" SelectedItem="{Binding SelectedItem}">
                         <ListBox.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="Перейти к товару"/>
-                                <MenuItem Header="Приобрести"/>
+                                <MenuItem Header="Перейти к товару" Command="{Binding OpenProductCardCommand}"/>
                                 <MenuItem Header="Добавить в корзину"/>
                             </ContextMenu>
                         </ListBox.ContextMenu>

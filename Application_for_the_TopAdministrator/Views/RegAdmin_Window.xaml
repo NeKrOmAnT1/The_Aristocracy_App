@@ -1,0 +1,58 @@
+﻿<mah:MetroWindow x:Class="Application_for_the_TopAdministrator.Views.RegAdmin_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Application_for_the_TopAdministrator.Views"
+        mc:Ignorable="d"
+        
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                 
+        xmlns:viewmodels ="clr-namespace:Application_for_the_TopAdministrator.ViewModels"            
+        
+        Title="Регистрация Администратора" Height="450" Width="600" WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <viewmodels:RegAdmin_ViewModel/>
+    </Window.DataContext>
+    
+    <!--#region Стиль окна-->
+    <mah:MetroWindow.LeftWindowCommands>
+        <mah:WindowCommands>
+            <iconPacks:PackIconModern Width="22"
+                              Height="22"
+                              Kind="UserAdd" />
+        </mah:WindowCommands>
+    </mah:MetroWindow.LeftWindowCommands>
+    <mah:MetroWindow.RightWindowCommands>
+        <mah:WindowCommands>
+            <Button Command="{Binding moc}">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconModern Width="22"
+                                    Height="22"
+                                    VerticalAlignment="Center"
+                                    Kind="PrinterText"/>
+                            <TextBlock Margin="4 0 0 0"
+                     VerticalAlignment="Center"
+                     Text="Распечатать отчет" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+        </mah:WindowCommands>
+    </mah:MetroWindow.RightWindowCommands>
+    <!--#endregion-->
+    <Grid Margin="50">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox Text="{Binding FIO}" materialDesign:HintAssist.Hint="Введите ФИО администратора" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="20"/>
+            <TextBox Text="{Binding Email}" materialDesign:HintAssist.Hint="Введите электронную почту" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="20"/>
+            <TextBox Text="{Binding Password}" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="20"/>
+            <TextBox Text="{Binding RepeatPassword}" materialDesign:HintAssist.Hint="Повторите пароль" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="20"/>
+            <Button Content="Зарегистрировать" FontSize="18" Command="{Binding RegAdminCommand}" Margin="10" Style="{StaticResource MaterialDesignFlatAccentButton}"/>
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>

@@ -1,0 +1,86 @@
+﻿<mah:MetroWindow x:Class="Application_for_the_Administrator.Views.Main_Catalog_WindowAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Application_for_the_Administrator.Views"
+        mc:Ignorable="d"
+        
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                 
+        xmlns:viewmodels ="clr-namespace:Application_for_the_Administrator.ModelViews"         
+                 
+        Title="Каталог товаров/Admin" Height="450" Width="800" WindowStartupLocation="CenterScreen" Background="#302f2f">
+
+    <Window.DataContext>
+        <viewmodels:Main_Catalog_Admin_ViewModel/>
+    </Window.DataContext>
+    
+    <!--#region Стиль окна-->
+    <mah:MetroWindow.LeftWindowCommands>
+        <mah:WindowCommands>
+            <materialDesign:PackIcon Kind="Administrator" Width="22"
+                         Height="22"/>
+        </mah:WindowCommands>
+    </mah:MetroWindow.LeftWindowCommands>
+    <mah:MetroWindow.RightWindowCommands>
+        <mah:WindowCommands>
+            <Button Command="{Binding OutAuthWindowCommand}">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconModern Width="22"
+                               Height="22"
+                               VerticalAlignment="Center"
+                               Kind="DoorLeave"/>
+                            <TextBlock Margin="4 0 0 0"
+                VerticalAlignment="Center"
+                Text="Выйти из аккаунта" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+        </mah:WindowCommands>
+    </mah:MetroWindow.RightWindowCommands>
+    <!--#endregion-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="5" VerticalAlignment="Top" Height="30" Grid.Row="0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <materialDesign:PackIcon Kind="Administrator" VerticalAlignment="Center"/>
+                <TextBlock  Text="{Binding AdminName, StringFormat=Администратор: {0}}" FontSize="15" FontFamily="Sans Serif" FontWeight="Bold" Style="{StaticResource MaterialDesignCharacterCounterTextBlock}" Foreground="White" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ListBox Margin="10 0 0 0" VerticalAlignment="Center" Style="{StaticResource MaterialDesignCardsListBox}" ItemsSource="{Binding Tovar}" SelectedItem="{Binding SelectedItem}">
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Добавить" Command="{Binding OpenAddWindowCommand}"/>
+                        <MenuItem Header="Редактировать" Command="{Binding OpenEditWindowCommand}"/>
+                        <MenuItem Header="Удалить" Command="{Binding DeleteCommand}"/>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="3"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel HorizontalAlignment="Center">
+                            <Image Source="{Binding ProductImage}" Grid.Row="0" Height="150" Width="150"/>
+                            <TextBlock Style="{StaticResource MaterialDesignCharacterCounterTextBlock}" FontSize="20" FontFamily="Sans Serif" FontWeight="Bold" Foreground="White" Height="auto" TextWrapping="Wrap" Text="{Binding Productname, StringFormat=Одежда ARISTOKRATIA: {0}}"/>
+                            <TextBlock Style="{StaticResource MaterialDesignCharacterCounterTextBlock}" FontSize="15" FontFamily="Sans Serif" FontWeight="Bold" Foreground="White" Height="auto" TextWrapping="Wrap" Text="{Binding Productprice, StringFormat=Цена: {0} RUS}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Grid>
+</mah:MetroWindow>
+

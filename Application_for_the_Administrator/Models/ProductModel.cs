@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application_for_the_Client.Models
+namespace Application_for_the_Administrator.Models
 {
     internal class ProductModel
     {
@@ -12,6 +12,7 @@ namespace Application_for_the_Client.Models
         public string Productname { get; set; }
         public decimal Productprice { get; set; }
         public string Productdescription { get; set; }
-        public decimal Productsize { get; set; } 
+        public decimal Productsize { get; set; }
+        public byte[] ProductImage { get; set; }
     }
 }

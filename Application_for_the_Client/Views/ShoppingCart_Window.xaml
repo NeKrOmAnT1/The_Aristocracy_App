@@ -28,7 +28,7 @@
     </mah:MetroWindow.LeftWindowCommands>
     <mah:MetroWindow.RightWindowCommands>
         <mah:WindowCommands>
-            <Button Command="{Binding moc}">
+            <Button Command="{Binding ReturnCatalogCommand}">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -54,7 +54,7 @@
         <ListBox Grid.Row="0" Margin="10 10 0 0" VerticalAlignment="Center" Style="{StaticResource MaterialDesignCardsListBox}" ItemsSource="{Binding Tovar}" SelectedItem="{Binding SelectedItem}" Cursor="">
             <ListBox.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Перейти к товару"/>
+                    <MenuItem Header="Перейти к товару" Command="{Binding OpenProductCardCommand}"/>
                 </ContextMenu>
             </ListBox.ContextMenu>
             <ListBox.ItemsPanel>
