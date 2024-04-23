@@ -1,4 +1,5 @@
 ﻿using Application_for_the_Client.Models;
+using Application_for_the_Client.ModelViews;
 using Application_for_the_Client.Views;
 using Newtonsoft.Json;
 using RestSharp;
@@ -14,11 +15,13 @@ namespace Application_for_the_Client.Methods
 {
     internal class Methods
     {
-        public static void OpenProduct_Card()
+        public static void OpenProduct_Card(ProductModel SelectedProduct)
         {
             ProductCard_Window window = new ProductCard_Window();
             window.Show();
+            window.DataContext = new ProductCard_ViewModel(SelectedProduct);
             Window window1 = Application.Current.Windows.OfType<Window>().FirstOrDefault();
+
             if (window1 != null)
             {
                 window1.Close();

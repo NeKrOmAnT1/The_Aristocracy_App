@@ -74,7 +74,7 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel HorizontalAlignment="Center">
-                                    <Image Source="C:\Users\Pro\source\repos\ClientServiceWPF\ClientServiceWPF\Image\kartinki-znak-voprosa-4.jpg" Grid.Row="0" Height="150" Width="150"/>
+                                    <Image Source="{Binding ProductImage}" Grid.Row="0" Height="150" Width="150"/>
                                     <TextBlock Style="{StaticResource MaterialDesignCharacterCounterTextBlock}" FontSize="20" FontFamily="Sans Serif" FontWeight="Bold" Foreground="White" Height="auto" TextWrapping="Wrap" Text="{Binding Productname, StringFormat=Одежда: {0}}"/>
                                     <TextBlock Style="{StaticResource MaterialDesignCharacterCounterTextBlock}" FontSize="15" FontFamily="Sans Serif" FontWeight="Bold" Foreground="White" Height="auto" TextWrapping="Wrap" Text="{Binding Productprice, StringFormat=Цена: {0} рублей}"/>
                                 </StackPanel>

@@ -13,9 +13,7 @@
         xmlns:viewmodel ="clr-namespace:Application_for_the_Client.ModelViews"
         
         Title="Карточка товара" Height="550" Width="800" Background="#302f2f" WindowStartupLocation="CenterScreen" >
-    <Window.DataContext>
-        <viewmodel:ProductCard_ViewModel/>
-    </Window.DataContext>
+   
     <!--#region Стиль окна-->
     <mah:MetroWindow.LeftWindowCommands>
         <mah:WindowCommands>
@@ -50,10 +48,10 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
        
-        <Image Margin="50 10 25 10" Source="C:\Users\Pro\source\repos\ClientServiceWPF\ClientServiceWPF\Image\kartinki-znak-voprosa-4.jpg" Grid.Column="0" VerticalAlignment="Center" Width="400" Height="400"/>
+        <Image Margin="50 10 25 10" Source="{Binding ProductImage}" Grid.Column="0" VerticalAlignment="Center" Width="400" Height="400"/>
         <StackPanel Margin="10 30" Grid.Column="1" VerticalAlignment="Center">
             <Label Content="ARISTOKRATIA" FontFamily="Sans Serif" FontWeight="Bold" FontSize="30" />
-            <TextBlock Text="{Binding Name, StringFormat= ·{0} ARISTOKRATIA}" Foreground="White" FontWeight="Bold"  FontSize="20"/>
+            <TextBlock Text="{Binding Name, StringFormat= ·{0}}" Foreground="White" FontWeight="Bold"  FontSize="20"/>
             <TextBlock TextWrapping="Wrap" Margin="0 10" Foreground="White" FontSize="15" FontFamily="Sans Serif" Text="{Binding Description}"/>
             <TextBlock Text="{Binding Price, StringFormat=ᅟ{0} RUS}" Margin="0 10 0 0" HorizontalAlignment="Center" Grid.Column="1" FontFamily="Sans Serif" Foreground="White" FontSize="18"  FontWeight="Bold"/>
             <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontFamily="Sans Serif" Width="300" materialDesign:HintAssist.Hint="Размер" Foreground="Cyan" FontWeight="Bold" FontSize="20">

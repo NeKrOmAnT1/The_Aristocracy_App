@@ -14,6 +14,7 @@ namespace Application_for_the_Client.ModelViews
     { 
         public ObservableCollection<ProductModel> Tovar { get; set; }
         public ProductModel SelectedItem { get; set; }
+        public byte[] ProductImage { get; set; }
         public int money { get; set; }
         public ICommand OpenProductCardCommand { get; set; }
         public ICommand OpenShoppingCartCommand { get; set; }
@@ -23,7 +24,7 @@ namespace Application_for_the_Client.ModelViews
         {
             OutAccountCommand = new DelegateCommand(() => Methods.Methods.OutAccount());
             OpenShoppingCartCommand = new DelegateCommand(()=> Methods.Methods.Open_Shopping_Cart());
-            OpenProductCardCommand = new DelegateCommand(()=> Methods.Methods.OpenProduct_Card());
+            OpenProductCardCommand = new DelegateCommand(()=> Methods.Methods.OpenProduct_Card(SelectedItem));
             money = 3213;
             Tovar = Methods.Methods.LoadData(Tovar);
           

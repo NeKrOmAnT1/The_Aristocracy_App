@@ -19,7 +19,7 @@ namespace Application_for_the_Client.ModelViews
         public ICommand OpenProductCardCommand { get; set; }
         public ShoppingCart_ViewModel()
         {
-            OpenProductCardCommand = new DelegateCommand(() => Methods.Methods.OpenProduct_Card());
+            OpenProductCardCommand = new DelegateCommand(() => Methods.Methods.OpenProduct_Card(SelectedItem));
             ReturnCatalogCommand = new DelegateCommand(() => Methods.Methods.OpenMain_Catalog_Window());
             money = 3213;
             Tovar = new ObservableCollection<ProductModel>();

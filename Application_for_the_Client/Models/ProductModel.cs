@@ -12,6 +12,7 @@ namespace Application_for_the_Client.Models
         public string Productname { get; set; }
         public decimal Productprice { get; set; }
         public string Productdescription { get; set; }
+        public byte[] ProductImage { get; set; }
         public decimal Productsize { get; set; } 
     }
 }

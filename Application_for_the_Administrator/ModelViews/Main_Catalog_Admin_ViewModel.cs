@@ -15,7 +15,7 @@ namespace Application_for_the_Administrator.ModelViews
     {
         public ObservableCollection<ProductModel> Tovar { get; set; }
         public ProductModel SelectedItem { get; set; }
-        public string AdminName { get; set; }
+        public string AdminName { get { return Methods.Methods.LoggedAdminName.Trim().Replace("\"", ""); } }
         public byte[] ProductImage { get; set; }
         public ICommand OpenAddWindowCommand { get; set; }
         public ICommand OpenEditWindowCommand { get; set; }
@@ -30,7 +30,6 @@ namespace Application_for_the_Administrator.ModelViews
             OpenEditWindowCommand = new DelegateCommand(()=>Methods.Methods.OpenProduct_Card_Edit_WindowAdmin(SelectedItem));
             OpenAddWindowCommand = new DelegateCommand(()=> Methods.Methods.OpenProduct_Card_Add_WindowAdmin());
             OutAuthWindowCommand = new DelegateCommand(() => Methods.Methods.OutInMainWindowAuthAdmin());
-            AdminName = "Мифтахов Роман";
             Tovar = Methods.Methods.LoadData(Tovar);
         }
     }

@@ -1,4 +1,5 @@
-﻿using DevExpress.Mvvm;
+﻿using Application_for_the_Client.Models;
+using DevExpress.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +13,19 @@ namespace Application_for_the_Client.ModelViews
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public int Price { get; set; }
+        public decimal Price { get; set; }
         public int Size { get; set; }
+        public byte[] ProductImage { get; set; }
         public ICommand ReturnCatalogCommand { get; set; }
 
-        public ProductCard_ViewModel() 
+        public ProductCard_ViewModel(ProductModel selectedProduct) 
         {
             ReturnCatalogCommand = new DelegateCommand(() => Methods.Methods.OpenMain_Catalog_Window());
-            Name = "Кроссовки";
-            Description = "Кроссовки высокий профиль кроссовок не стесняет движений голеностопа, что не повредит никак Вашей ножке. де.Помимо этого, адежное сцепление.Их современный дизайн сочетает в себе элементы классического стиля и передовых технологий, что делает их невероятно комфортными и практичными. Стильный сетчатый рисунок завершает облик кроссовок, которые подойдут как для спорта, так и для повседневного ношения. Будут хорошо сочетаться с любой одеждой и в любую погоду. ";
-            Price = 12990;
+            Name = selectedProduct.Productname;
+            Description = selectedProduct.Productdescription;
+            Price = selectedProduct.Productprice;
+            ProductImage = selectedProduct.ProductImage;
+            
         }
     }
 }

@@ -9,11 +9,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls.Primitives;
-using System.Windows.Media.Imaging;
 
 namespace Application_for_the_Administrator.Methods
 {
@@ -64,6 +60,7 @@ namespace Application_for_the_Administrator.Methods
         }
         #region Запросы к API(ADMIN)
         public const string BaseUrl = "https://localhost:7227";
+        public static string LoggedAdminName { get; private set; }
         public static bool LogAdmin( string pass, string email)
         {
             var client = new RestClient(BaseUrl);
@@ -77,6 +74,7 @@ namespace Application_for_the_Administrator.Methods
             var responce = client.Execute(request);
             if (responce.StatusCode == System.Net.HttpStatusCode.OK)
             {
+                LoggedAdminName = responce.Content;
                 OpenMain_Catalog_WindowAdminn();
                 return true;
             }
