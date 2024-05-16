@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application_for_the_Adminis
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application_for_the_TopAdministrator", "Application_for_the_TopAdministrator\Application_for_the_TopAdministrator.csproj", "{88D1364E-EB8E-429F-AC90-4A006D6BEE9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLibrarySTI", "CommonLibrarySTI\CommonLibrarySTI.csproj", "{E5C5F08C-7A14-4C51-BD54-DEEBF1F8DC88}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{88D1364E-EB8E-429F-AC90-4A006D6BEE9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88D1364E-EB8E-429F-AC90-4A006D6BEE9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88D1364E-EB8E-429F-AC90-4A006D6BEE9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5C5F08C-7A14-4C51-BD54-DEEBF1F8DC88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5C5F08C-7A14-4C51-BD54-DEEBF1F8DC88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5C5F08C-7A14-4C51-BD54-DEEBF1F8DC88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5C5F08C-7A14-4C51-BD54-DEEBF1F8DC88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

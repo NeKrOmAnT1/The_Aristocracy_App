@@ -1,18 +1,15 @@
 ﻿using Application_for_the_Client.Models;
 using DevExpress.Mvvm;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
+using Application_for_the_Client.Views;
+using CommonLibrarySTI;
 
 namespace Application_for_the_Client.ModelViews
 {
     internal class Main_Catalog_Window_ViewModel : ViewModelBase
     { 
-        public ObservableCollection<ProductModel> Tovar { get; set; }
+        public ObservableCollection<CommonLibrarySTI.Models.ProductModel> Tovar { get; set; }
         public ProductModel SelectedItem { get; set; }
         public byte[] ProductImage { get; set; }
         public int money { get; set; }
@@ -22,12 +19,12 @@ namespace Application_for_the_Client.ModelViews
 
         public Main_Catalog_Window_ViewModel()
         {
-            OutAccountCommand = new DelegateCommand(() => Methods.Methods.OutAccount());
-            OpenShoppingCartCommand = new DelegateCommand(()=> Methods.Methods.Open_Shopping_Cart());
-            OpenProductCardCommand = new DelegateCommand(()=> Methods.Methods.OpenProduct_Card(SelectedItem));
+            OutAccountCommand = new DelegateCommand(() => CommonLibrarySTI.WindowManager.OpenWindow<MainWindow>());
+            OpenShoppingCartCommand = new DelegateCommand(()=> CommonLibrarySTI.WindowManager.OpenWindow<ShoppingCart_Window>());
+            OpenProductCardCommand = new DelegateCommand(()=> CommonLibrarySTI.WindowManager.OpenWindow<ProductCard_Window>(new ProductCard_ViewModel(SelectedItem)));
             money = 3213;
-            Tovar = Methods.Methods.LoadData(Tovar);
-          
+            Tovar = CommonLibrarySTI.Methods.LoadData(Tovar);
         }
+
     }
 }
