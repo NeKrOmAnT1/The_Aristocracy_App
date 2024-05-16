@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Xml.Linq;
+using CommonLibrarySTI;
+using Application_for_the_Administrator.Views;
 
 namespace Application_for_the_Administrator.ModelViews
 {
@@ -25,12 +27,12 @@ namespace Application_for_the_Administrator.ModelViews
        public Product_Card_Add_ViewModel()
         {
             SelectImageCommand = new DelegateCommand(SelectImage);
-            ReturnCatalogCommand = new DelegateCommand(() => Methods.Methods.OpenMain_Catalog_WindowAdminn());
-            AddTovarCommand = new DelegateCommand(() => Methods.Methods.AddProduct(Name, Price, Description, Size, ProductImage));
+            ReturnCatalogCommand = new DelegateCommand(() => CommonLibrarySTI.WindowManager.OpenWindow<Main_Catalog_WindowAdmin>());
+            AddTovarCommand = new DelegateCommand(() => CommonLibrarySTI.Methods.AddProduct(Name, Price, Description, Size, ProductImage));
         }
         private void SelectImage()
         {
-            ProductImage = Methods.Methods.SelectImage();
+            ProductImage = CommonLibrarySTI.Methods.SelectImage();
         }
     }
 }

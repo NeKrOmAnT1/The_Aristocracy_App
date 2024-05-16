@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using CommonLibrarySTI;
 
 namespace Application_for_the_Client.ModelViews
 {
@@ -18,8 +19,8 @@ namespace Application_for_the_Client.ModelViews
         public ICommand AuthUserCommand { get; set; }
        public MainWindow_ViewModel()
         {
-            RegUserCommand = new DelegateCommand(()=> Methods.Methods.RegUser(regEmail, regPass));
-            AuthUserCommand = new DelegateCommand(()=> Methods.Methods.LogUser(authEmail, authPass));
+            RegUserCommand = new DelegateCommand(()=> CommonLibrarySTI.Methods.RegUser(regEmail, regPass));
+            AuthUserCommand = new DelegateCommand(()=> CommonLibrarySTI.Methods.LogUser(authPass, authEmail));
         }
     }
 }

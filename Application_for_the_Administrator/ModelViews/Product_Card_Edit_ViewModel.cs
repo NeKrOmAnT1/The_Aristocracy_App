@@ -1,4 +1,5 @@
 ﻿using Application_for_the_Administrator.Models;
+using Application_for_the_Administrator.Views;
 using DevExpress.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using CommonLibrarySTI;
 
 namespace Application_for_the_Administrator.ModelViews
 {
@@ -20,11 +22,11 @@ namespace Application_for_the_Administrator.ModelViews
         public ICommand SelectImageCommand { get; set; }
         public ICommand EditProductCommand { get; set; }
 
-        public Product_Card_Edit_ViewModel(ProductModel selectedProduct) 
+        public Product_Card_Edit_ViewModel(CommonLibrarySTI.Models.ProductModel selectedProduct) 
         {
-            ReturnCatalogCommand = new DelegateCommand(() => Methods.Methods.OpenMain_Catalog_WindowAdminn());
+            ReturnCatalogCommand = new DelegateCommand(() => CommonLibrarySTI.WindowManager.OpenWindow<Main_Catalog_WindowAdmin>());
             SelectImageCommand = new DelegateCommand(SelectImage);
-            EditProductCommand = new DelegateCommand(() => Methods.Methods.EditProduct(Name, Price, Description, Size, ProductImage, selectedProduct.Id));
+            EditProductCommand = new DelegateCommand(() => CommonLibrarySTI.Methods.EditProduct(Name, Price, Description, Size, ProductImage, selectedProduct.Id));
             Name = selectedProduct.Productname;
             Description = selectedProduct.Productdescription;
             Price = selectedProduct.Productprice;
@@ -32,7 +34,7 @@ namespace Application_for_the_Administrator.ModelViews
         }
         private void SelectImage()
         {
-            ProductImage = Methods.Methods.SelectImage();
+            ProductImage = CommonLibrarySTI.Methods.SelectImage();
         }
     }
 }

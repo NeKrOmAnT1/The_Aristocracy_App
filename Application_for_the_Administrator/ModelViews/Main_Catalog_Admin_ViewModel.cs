@@ -8,13 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using CommonLibrarySTI;
+using Application_for_the_Administrator.Views;
 
 namespace Application_for_the_Administrator.ModelViews
 {
     internal class Main_Catalog_Admin_ViewModel : ViewModelBase
     {
-        public ObservableCollection<ProductModel> Tovar { get; set; }
-        public ProductModel SelectedItem { get; set; }
+        public ObservableCollection<CommonLibrarySTI.Models.ProductModel> Tovar { get; set; }
+        public CommonLibrarySTI.Models.ProductModel SelectedItem { get; set; }
         public string AdminName { get { return Methods.Methods.LoggedAdminName.Trim().Replace("\"", ""); } }
         public byte[] ProductImage { get; set; }
         public ICommand OpenAddWindowCommand { get; set; }
@@ -27,10 +29,10 @@ namespace Application_for_the_Administrator.ModelViews
         {
             DeleteCommand = new DelegateCommand(() => Methods.Methods.Delete(SelectedItem.Id));
 
-            OpenEditWindowCommand = new DelegateCommand(()=>Methods.Methods.OpenProduct_Card_Edit_WindowAdmin(SelectedItem));
-            OpenAddWindowCommand = new DelegateCommand(()=> Methods.Methods.OpenProduct_Card_Add_WindowAdmin());
-            OutAuthWindowCommand = new DelegateCommand(() => Methods.Methods.OutInMainWindowAuthAdmin());
-            Tovar = Methods.Methods.LoadData(Tovar);
+            OpenEditWindowCommand = new DelegateCommand(()=>CommonLibrarySTI.WindowManager.OpenWindow<Product_Card_Edit_WindowAdmin>(SelectedItem));
+            OpenAddWindowCommand = new DelegateCommand(()=> CommonLibrarySTI.WindowManager.OpenWindow<Product_Card_Add_WindowAdmin>());
+            OutAuthWindowCommand = new DelegateCommand(() => CommonLibrarySTI.WindowManager.OpenWindow<MainWindowAuthAdmin>());
+            Tovar = CommonLibrarySTI.Methods.LoadData(Tovar);
         }
     }
 }

@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using CommonLibrarySTI;
+using Application_for_the_Client.Views;
 
 namespace Application_for_the_Client.ModelViews
 {
@@ -18,9 +20,9 @@ namespace Application_for_the_Client.ModelViews
         public byte[] ProductImage { get; set; }
         public ICommand ReturnCatalogCommand { get; set; }
 
-        public ProductCard_ViewModel(ProductModel selectedProduct) 
+        public ProductCard_ViewModel(CommonLibrarySTI.Models.ProductModel selectedProduct) 
         {
-            ReturnCatalogCommand = new DelegateCommand(() => Methods.Methods.OpenMain_Catalog_Window());
+            ReturnCatalogCommand = new DelegateCommand(() => CommonLibrarySTI.WindowManager.OpenWindow<Main_Catalog_Window>());
             Name = selectedProduct.Productname;
             Description = selectedProduct.Productdescription;
             Price = selectedProduct.Productprice;

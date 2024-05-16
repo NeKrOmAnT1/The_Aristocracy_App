@@ -10,7 +10,7 @@ namespace Application_for_the_Client.ModelViews
     internal class Main_Catalog_Window_ViewModel : ViewModelBase
     { 
         public ObservableCollection<CommonLibrarySTI.Models.ProductModel> Tovar { get; set; }
-        public ProductModel SelectedItem { get; set; }
+        public CommonLibrarySTI.Models.ProductModel SelectedItem { get; set; }
         public byte[] ProductImage { get; set; }
         public int money { get; set; }
         public ICommand OpenProductCardCommand { get; set; }
