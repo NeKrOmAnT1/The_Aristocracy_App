@@ -15,18 +15,18 @@ namespace Application_for_the_Client.Methods
 {
     internal class Methods
     {
-        public static void OpenProduct_Card(ProductModel SelectedProduct)
-        {
-            ProductCard_Window window = new ProductCard_Window();
-            window.Show();
-            window.DataContext = new ProductCard_ViewModel(SelectedProduct);
-            Window window1 = Application.Current.Windows.OfType<Window>().FirstOrDefault();
+        //public static void OpenProduct_Card(ProductModel SelectedProduct)
+        //{
+        //    ProductCard_Window window = new ProductCard_Window();
+        //    window.Show();
+        //    window.DataContext = new ProductCard_ViewModel(SelectedProduct);
+        //    Window window1 = Application.Current.Windows.OfType<Window>().FirstOrDefault();
 
-            if (window1 != null)
-            {
-                window1.Close();
-            }
-        } 
+        //    if (window1 != null)
+        //    {
+        //        window1.Close();
+        //    }
+        //} 
         public static void Open_Shopping_Cart()
         {
             ShoppingCart_Window window = new ShoppingCart_Window();

@@ -48,7 +48,6 @@ namespace CommonLibrarySTI
             {
                 //OpenMain_Catalog_Window();
                 MessageBox.Show("Увидел");
-                WindowManager.OpenWindow<Window>();
             }
         }
         #region Для работы с продуктами

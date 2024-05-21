@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using CommonLibrarySTI;
+using Application_for_the_Client.Views;
 
 namespace Application_for_the_Client.ModelViews
 {
@@ -20,7 +21,12 @@ namespace Application_for_the_Client.ModelViews
        public MainWindow_ViewModel()
         {
             RegUserCommand = new DelegateCommand(()=> CommonLibrarySTI.Methods.RegUser(regEmail, regPass));
-            AuthUserCommand = new DelegateCommand(()=> CommonLibrarySTI.Methods.LogUser(authPass, authEmail));
+            AuthUserCommand = new DelegateCommand(()=> LoginUser());
+        }
+        private void LoginUser()
+        {
+            CommonLibrarySTI.Methods.LogUser(authPass, authEmail);
+            CommonLibrarySTI.WindowManager.OpenWindow<Main_Catalog_Window>();
         }
     }
 }
