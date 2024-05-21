@@ -19,8 +19,8 @@ namespace Application_for_the_Client.ModelViews
 
         public Main_Catalog_Window_ViewModel()
         {
-            OutAccountCommand = new DelegateCommand(() => CommonLibrarySTI.WindowManager.OpenWindow<MainWindow>());
-            OpenShoppingCartCommand = new DelegateCommand(()=> CommonLibrarySTI.WindowManager.OpenWindow<ShoppingCart_Window>());
+            OutAccountCommand = new DelegateCommand(() => CommonLibrarySTI.WindowManager.OpenWindow<MainWindow>(new MainWindow_ViewModel()));
+            OpenShoppingCartCommand = new DelegateCommand(()=> CommonLibrarySTI.WindowManager.OpenWindow<ShoppingCart_Window>(new ShoppingCart_ViewModel()));
             OpenProductCardCommand = new DelegateCommand(()=> CommonLibrarySTI.WindowManager.OpenWindow<ProductCard_Window>(new ProductCard_ViewModel(SelectedItem)));
             money = 3213;
             Tovar = CommonLibrarySTI.Methods.LoadData(Tovar);

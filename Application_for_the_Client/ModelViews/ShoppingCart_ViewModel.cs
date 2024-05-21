@@ -21,8 +21,8 @@ namespace Application_for_the_Client.ModelViews
         public ICommand OpenProductCardCommand { get; set; }
         public ShoppingCart_ViewModel()
         {
-            OpenProductCardCommand = new DelegateCommand(() => CommonLibrarySTI.WindowManager.OpenWindow<ProductCard_Window>(SelectedItem));
-            ReturnCatalogCommand = new DelegateCommand(() => CommonLibrarySTI.WindowManager.OpenWindow<Main_Catalog_Window>());
+            OpenProductCardCommand = new DelegateCommand(() => CommonLibrarySTI.WindowManager.OpenWindow<ProductCard_Window>(new ProductCard_ViewModel(SelectedItem)));
+            ReturnCatalogCommand = new DelegateCommand(() => CommonLibrarySTI.WindowManager.OpenWindow<Main_Catalog_Window>(new Main_Catalog_Window_ViewModel()));
             money = 3213;
 
             Tovar = new ObservableCollection<CommonLibrarySTI.Models.ProductModel>();

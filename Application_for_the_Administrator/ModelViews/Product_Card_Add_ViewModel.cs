@@ -27,7 +27,7 @@ namespace Application_for_the_Administrator.ModelViews
        public Product_Card_Add_ViewModel()
         {
             SelectImageCommand = new DelegateCommand(SelectImage);
-            ReturnCatalogCommand = new DelegateCommand(() => CommonLibrarySTI.WindowManager.OpenWindow<Main_Catalog_WindowAdmin>());
+            ReturnCatalogCommand = new DelegateCommand(() => CommonLibrarySTI.WindowManager.OpenWindow<Main_Catalog_WindowAdmin>(new Main_Catalog_Admin_ViewModel()));
             AddTovarCommand = new DelegateCommand(() => CommonLibrarySTI.Methods.AddProduct(Name, Price, Description, Size, ProductImage));
         }
         private void SelectImage()

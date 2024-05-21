@@ -20,11 +20,18 @@ namespace Application_for_the_Administrator.ModelViews
         public MainWindowAuthAdmin_ViewModel()
         {
             ErrorMessageVisibility = Visibility.Collapsed;
-            AuthCommand = new DelegateCommand(() => Auth());
+            AuthCommand = new DelegateCommand(() =>
+            {
+                Auth();
+                if (CommonLibrarySTI.Methods.LogAdmin(PasswordAdmin, EmailAdmin))
+                {
+                    CommonLibrarySTI.WindowManager.OpenWindow<Main_Catalog_WindowAdmin>(new Main_Catalog_Admin_ViewModel());
+                }
+            });
         }
         private void Auth()
         {
-            bool isValid = Methods.Methods.LogAdmin(PasswordAdmin, EmailAdmin);
+            bool isValid = CommonLibrarySTI.Methods.LogAdmin(PasswordAdmin, EmailAdmin);
             Methods.Methods.Check(isValid, this);
             RaisePropertyChanged(nameof(ErrorMessageVisibility)); 
         }

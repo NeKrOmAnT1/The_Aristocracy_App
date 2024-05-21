@@ -32,7 +32,7 @@ namespace CommonLibrarySTI
             var responce = client.Execute(request);
             MessageBox.Show(responce.Content);
         }
-        public static void LogUser(string pass, string email)
+        public static bool LogUser(string pass, string email)
         {
             var client = new RestClient(BaseUrl);
             var request = new RestRequest("/AuthUser/Login", Method.Post);
@@ -46,9 +46,11 @@ namespace CommonLibrarySTI
             MessageBox.Show(responce.Content);
             if (responce.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                //OpenMain_Catalog_Window();
                 MessageBox.Show("Увидел");
+                return true;
             }
+            else
+            return false;
         }
         #region Для работы с продуктами
 

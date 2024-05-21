@@ -18,15 +18,16 @@ namespace Application_for_the_Client.ModelViews
         public string authPass { get; set; }
         public ICommand RegUserCommand { get; set; }
         public ICommand AuthUserCommand { get; set; }
-       public MainWindow_ViewModel()
+        public MainWindow_ViewModel()
         {
-            RegUserCommand = new DelegateCommand(()=> CommonLibrarySTI.Methods.RegUser(regEmail, regPass));
-            AuthUserCommand = new DelegateCommand(()=> LoginUser());
-        }
-        private void LoginUser()
-        {
-            CommonLibrarySTI.Methods.LogUser(authPass, authEmail);
-            CommonLibrarySTI.WindowManager.OpenWindow<Main_Catalog_Window>();
+            RegUserCommand = new DelegateCommand(() => CommonLibrarySTI.Methods.RegUser(regEmail, regPass));
+            AuthUserCommand = new DelegateCommand(() =>
+            {
+                if (CommonLibrarySTI.Methods.LogUser(authPass, authEmail))
+                {
+                    CommonLibrarySTI.WindowManager.OpenWindow<Main_Catalog_Window>(new Main_Catalog_Window_ViewModel());
+                }
+            });
         }
     }
 }

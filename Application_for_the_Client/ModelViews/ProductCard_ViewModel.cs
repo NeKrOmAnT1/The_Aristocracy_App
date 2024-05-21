@@ -22,7 +22,7 @@ namespace Application_for_the_Client.ModelViews
 
         public ProductCard_ViewModel(CommonLibrarySTI.Models.ProductModel selectedProduct) 
         {
-            ReturnCatalogCommand = new DelegateCommand(() => CommonLibrarySTI.WindowManager.OpenWindow<Main_Catalog_Window>());
+            ReturnCatalogCommand = new DelegateCommand(() => CommonLibrarySTI.WindowManager.OpenWindow<Main_Catalog_Window>(new Main_Catalog_Window_ViewModel()));
             Name = selectedProduct.Productname;
             Description = selectedProduct.Productdescription;
             Price = selectedProduct.Productprice;

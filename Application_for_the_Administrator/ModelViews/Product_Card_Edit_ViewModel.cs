@@ -24,7 +24,7 @@ namespace Application_for_the_Administrator.ModelViews
 
         public Product_Card_Edit_ViewModel(CommonLibrarySTI.Models.ProductModel selectedProduct) 
         {
-            ReturnCatalogCommand = new DelegateCommand(() => CommonLibrarySTI.WindowManager.OpenWindow<Main_Catalog_WindowAdmin>());
+            ReturnCatalogCommand = new DelegateCommand(() => CommonLibrarySTI.WindowManager.OpenWindow<Main_Catalog_WindowAdmin>(new Main_Catalog_Admin_ViewModel()));
             SelectImageCommand = new DelegateCommand(SelectImage);
             EditProductCommand = new DelegateCommand(() => CommonLibrarySTI.Methods.EditProduct(Name, Price, Description, Size, ProductImage, selectedProduct.Id));
             Name = selectedProduct.Productname;
